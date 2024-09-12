@@ -13,6 +13,8 @@
 		5E8BABAB2C91B226002761FD /* UberCloneSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E8BABAA2C91B226002761FD /* UberCloneSwiftUIApp.swift */; };
 		5E8BABAF2C91B22C002761FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E8BABAE2C91B22C002761FD /* Assets.xcassets */; };
 		5E8BABB22C91B22C002761FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E8BABB12C91B22C002761FD /* Preview Assets.xcassets */; };
+		5E9AB8222C926D8B0094543C /* LocationSearchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8212C926D8B0094543C /* LocationSearchActivationView.swift */; };
+		5E9AB8242C926EC50094543C /* MapViewActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8232C926EC50094543C /* MapViewActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		5E8BABAA2C91B226002761FD /* UberCloneSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberCloneSwiftUIApp.swift; sourceTree = "<group>"; };
 		5E8BABAE2C91B22C002761FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E8BABB12C91B22C002761FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		5E9AB8212C926D8B0094543C /* LocationSearchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchActivationView.swift; sourceTree = "<group>"; };
+		5E9AB8232C926EC50094543C /* MapViewActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,8 +43,8 @@
 		5E699FAD2C91B463003A9F0E /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				5E699FB32C91B493003A9F0E /* ViewModels */,
-				5E699FAE2C91B46D003A9F0E /* Views */,
+				5E9AB81E2C926D3B0094543C /* LocationSearch */,
+				5E9AB81D2C926D2C0094543C /* Home */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -50,6 +54,7 @@
 			children = (
 				5E699FB42C91B4D7003A9F0E /* HomeView.swift */,
 				5E699FB62C91B729003A9F0E /* UberMapViewRepresentable.swift */,
+				5E9AB8232C926EC50094543C /* MapViewActionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -129,6 +134,39 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		5E9AB81D2C926D2C0094543C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				5E699FB32C91B493003A9F0E /* ViewModels */,
+				5E699FAE2C91B46D003A9F0E /* Views */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		5E9AB81E2C926D3B0094543C /* LocationSearch */ = {
+			isa = PBXGroup;
+			children = (
+				5E9AB8202C926D6C0094543C /* ViewModel */,
+				5E9AB81F2C926D5A0094543C /* Views */,
+			);
+			path = LocationSearch;
+			sourceTree = "<group>";
+		};
+		5E9AB81F2C926D5A0094543C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5E9AB8212C926D8B0094543C /* LocationSearchActivationView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5E9AB8202C926D6C0094543C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -200,9 +238,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E699FB92C91B9CF003A9F0E /* LocationManager.swift in Sources */,
+				5E9AB8242C926EC50094543C /* MapViewActionButton.swift in Sources */,
 				5E699FB52C91B4D7003A9F0E /* HomeView.swift in Sources */,
 				5E699FB72C91B729003A9F0E /* UberMapViewRepresentable.swift in Sources */,
 				5E8BABAB2C91B226002761FD /* UberCloneSwiftUIApp.swift in Sources */,
+				5E9AB8222C926D8B0094543C /* LocationSearchActivationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
