@@ -5,9 +5,8 @@
 //  Created by Damien Babington on 9/11/24.
 //
 
-
-/* UIViewRepresentable protocol allows creation of a view with UIKit
-    that can be represented in a SwiftUI hierarchy.
+/* UIViewRepresentable protocol allows creation of a view 
+    with UIKit that can be represented in SwiftUI.
  */
 
 import SwiftUI
@@ -28,8 +27,9 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        if let coordinates = locationViewModel.selectedLocationCoordinate {
-            print("Selected coordinates in map view: \(coordinates)")
+        if let coordinate = locationViewModel.selectedLocationCoordinate {
+            print("Coordinate in map view: \(coordinate)")
+            context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
         }
     }
     
@@ -38,23 +38,41 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     }
 }
 
+
 extension UberMapViewRepresentable {
     
     // This class allows use of UIKit's MapKit functionality by acting as the map view's delegate
     class MapCoordinator: NSObject, MKMapViewDelegate {
+        
+        // MARK: - Coordinator Properties
+        
         let parent: UberMapViewRepresentable
+        
+        // MARK: - Lifecycle
         
         init(parent: UberMapViewRepresentable) {
             self.parent = parent
             super.init()
         }
         
-        // Handle user location updates
+        // MARK: - MKMapViewDelegate Method
+        
         func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
             let region = MKCoordinateRegion(
                 center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
             
             parent.mapView.setRegion(region, animated: true)
+        }
+        
+        // MARK: - Helpers
+        
+        func addAndSelectAnnotation(withCoordinate coordinate: CLLocationCoordinate2D) {
+            parent.mapView.removeAnnotations(parent.mapView.annotations)
+            let anno = MKPointAnnotation()
+            anno.coordinate = coordinate
+            parent.mapView.addAnnotation(anno)
+            parent.mapView.selectAnnotation(anno, animated: true)
+            parent.mapView.showAnnotations(parent.mapView.annotations, animated: true)
         }
     }
 }
