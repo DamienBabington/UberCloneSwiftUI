@@ -16,7 +16,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     
     let mapView = MKMapView()
     let locationManager = LocationManager()
-    @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @EnvironmentObject var viewModel: LocationSearchViewModel
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
@@ -27,7 +27,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UIViewType, context: Context) {
-        if let coordinate = locationViewModel.selectedLocationCoordinate {
+        if let coordinate = viewModel.selectedLocationCoordinate {
             context.coordinator.addAnnotation(withCoordinate: coordinate)
             context.coordinator.configurePolyline(with: coordinate)
             print("Coordinate in map view: \(coordinate)")
@@ -42,7 +42,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
 
 extension UberMapViewRepresentable {
     
-    // This class allows use of UIKit's MapKit functionality by acting as the map view's delegate
+    // This coordinator class allows use of UIKit's MapKit functionality by acting as the map view's delegate
     class MapCoordinator: NSObject, MKMapViewDelegate {
         
         // MARK: - Coordinator Properties

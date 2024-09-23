@@ -18,8 +18,7 @@ struct LocationSearchActivationView: View {
             Text("Where to?")
                 .foregroundStyle(.gray)
             
-            Spacer()
-            
+            Spacer()            
         }
         .frame(width: UIScreen.main.bounds.width - 64, height: 50)
         .background(Rectangle()

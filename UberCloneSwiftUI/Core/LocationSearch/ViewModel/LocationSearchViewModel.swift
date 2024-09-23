@@ -47,7 +47,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     func locationSearch(forLocalSearchCompletion localSearch: MKLocalSearchCompletion, 
                         completion: @escaping MKLocalSearch.CompletionHandler) {
         /* Returns a location object based on a query containing the selected location's name
-            and address (title & subtitle). This is necessary to get access to the location's
+            and address (title & subtitle). This is necessary to access the location's
             coordinates rather than just the address.
          */
         let searchRequest = MKLocalSearch.Request()
@@ -56,7 +56,6 @@ class LocationSearchViewModel: NSObject, ObservableObject {
         search.start(completionHandler: completion)
     }
 }
-
 
 // MARK: - MKLocalSearchCompleterDelegate
 
