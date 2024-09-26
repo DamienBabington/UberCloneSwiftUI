@@ -15,8 +15,12 @@ import MapKit
 struct UberMapViewRepresentable: UIViewRepresentable {
     
     let mapView = MKMapView()
-    let locationManager = LocationManager.shared
     @Binding var mapState: MapViewState
+    
+    /* Don't update VM properties in this class or else it will cause a retain cycle since the VM is being observed
+        Instead, use the LocationManager to update the VM's userLocation property in the HomeView, since it's okay
+        for the HomeView to update the VM.
+     */
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
     
     func makeUIView(context: Context) -> some UIView {
@@ -35,7 +39,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
         case .searchingForLocation:
             break
         case .locationSelected:
-            if let coordinate = locationViewModel.selectedLocationCoordinate {
+            if let coordinate = locationViewModel.selectedUberLocation?.coordinate {
                 context.coordinator.addAnnotation(withCoordinate: coordinate)
                 context.coordinator.configurePolyline(with: coordinate)
             }

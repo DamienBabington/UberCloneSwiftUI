@@ -22,6 +22,7 @@
 		5E9AB8282C92731E0094543C /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8272C92731E0094543C /* LocationSearchResultCell.swift */; };
 		5E9AB82A2C927AC70094543C /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8292C927AC70094543C /* LocationSearchViewModel.swift */; };
 		5EEDF6542CA54C18009AD189 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6532CA54C18009AD189 /* Double.swift */; };
+		5EEDF6562CA553D6009AD189 /* UberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6552CA553D6009AD189 /* UberLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		5E9AB8272C92731E0094543C /* LocationSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultCell.swift; sourceTree = "<group>"; };
 		5E9AB8292C927AC70094543C /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
 		5EEDF6532CA54C18009AD189 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
+		5EEDF6552CA553D6009AD189 /* UberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLocation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				5E932BF42CA136B900E2F624 /* MapViewState.swift */,
 				5E59A7C32CA2C065009152F0 /* RideType.swift */,
+				5EEDF6552CA553D6009AD189 /* UberLocation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 				5E699FB52C91B4D7003A9F0E /* HomeView.swift in Sources */,
 				5E699FB72C91B729003A9F0E /* UberMapViewRepresentable.swift in Sources */,
 				5E8BABAB2C91B226002761FD /* UberCloneSwiftUIApp.swift in Sources */,
+				5EEDF6562CA553D6009AD189 /* UberLocation.swift in Sources */,
 				5E9AB8222C926D8B0094543C /* LocationSearchActivationView.swift in Sources */,
 				5E9AB8282C92731E0094543C /* LocationSearchResultCell.swift in Sources */,
 				5E59A7C42CA2C065009152F0 /* RideType.swift in Sources */,

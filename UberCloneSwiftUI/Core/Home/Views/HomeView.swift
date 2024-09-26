@@ -41,6 +41,7 @@ struct HomeView: View {
         }
         .edgesIgnoringSafeArea(.bottom)
         .onReceive(LocationManager.shared.$userLocation) { location in
+            // this modifier allows us to implement functionality when this observed property is updated
             if let location {
                 locationViewModel.userLocation = location
             }
