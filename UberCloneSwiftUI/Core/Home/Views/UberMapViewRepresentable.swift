@@ -17,7 +17,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     let mapView = MKMapView()
     let locationManager = LocationManager.shared
     @Binding var mapState: MapViewState
-    @EnvironmentObject var viewModel: LocationSearchViewModel
+    @EnvironmentObject var locationViewModel: LocationSearchViewModel
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
@@ -35,7 +35,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
         case .searchingForLocation:
             break
         case .locationSelected:
-            if let coordinate = viewModel.selectedLocationCoordinate {
+            if let coordinate = locationViewModel.selectedLocationCoordinate {
                 context.coordinator.addAnnotation(withCoordinate: coordinate)
                 context.coordinator.configurePolyline(with: coordinate)
             }
