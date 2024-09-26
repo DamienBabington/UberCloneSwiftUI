@@ -19,7 +19,6 @@ struct RideRequestView: View {
             
             // trip info view
             HStack {
-                //
                 VStack {
                     Circle()
                         .fill(Color(.systemGray3))
@@ -110,7 +109,7 @@ struct RideRequestView: View {
             Divider()
                 .padding(12)
             
-            // payment option view
+            // payment view
             HStack(spacing: 12) {
                 Text("Visa")
                     .font(.subheadline)
