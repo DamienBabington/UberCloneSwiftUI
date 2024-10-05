@@ -60,7 +60,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
         search.start(completionHandler: completion)
     }
     
-    func computeRidePrice(forType rideType: RideType) -> Double {
+    func computeRidePrice(for rideType: RideType) -> Double {
         guard let destCoordinate = selectedUberLocation?.coordinate else { return 0.0 }
         guard let userCoordinate = self.userLocation else { return 0.0 }
         
