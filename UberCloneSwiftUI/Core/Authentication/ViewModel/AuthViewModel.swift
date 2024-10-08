@@ -14,6 +14,7 @@ class AuthViewModel: ObservableObject {
     
     init() {
         userSession = Auth.auth().currentUser
+        fetchUser()
     }
     
     func registerUser(withEmail email: String, password: String, fullName: String) {
@@ -26,9 +27,9 @@ class AuthViewModel: ObservableObject {
             guard let firebaseUser = result?.user else { return }
             self.userSession = result?.user
             
+            // encode user data and save to Firestore
             let user = User(uid: firebaseUser.uid, fullName: fullName, email: email)
             guard let encodedUser = try? Firestore.Encoder().encode(user) else { return }
-            
             Firestore.firestore().collection("users").document(firebaseUser.uid).setData(encodedUser)
         }
     }
@@ -49,6 +50,22 @@ class AuthViewModel: ObservableObject {
             self.userSession = nil
         } catch let error {
             print("Failed to sign out with error: \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchUser() {
+        guard let uid = self.userSession?.uid else { return }
+        
+        // get current user's data from Firestore
+        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
+            if let error {
+                print("Failed to fetch user data with error: \(error.localizedDescription)")
+                return
+            }
+            guard let snapshot else { return }
+            
+            // decode snapshot data to our User data type
+            guard let user = try? snapshot.data(as: User.self) else { return }
         }
     }
 }
