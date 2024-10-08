@@ -29,6 +29,7 @@
 		5EC45C0C2CB4E42B0018E888 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC45C0B2CB4E42B0018E888 /* FirebaseFirestore */; };
 		5EC45C0E2CB4E42B0018E888 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5EC45C0D2CB4E42B0018E888 /* FirebaseStorage */; };
 		5EC45C112CB4EADC0018E888 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C102CB4EADC0018E888 /* AuthViewModel.swift */; };
+		5EC45C132CB504850018E888 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C122CB504850018E888 /* User.swift */; };
 		5EEDF6542CA54C18009AD189 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6532CA54C18009AD189 /* Double.swift */; };
 		5EEDF6562CA553D6009AD189 /* UberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6552CA553D6009AD189 /* UberLocation.swift */; };
 		5EF445CF2CA5749F00BC4583 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF445CE2CA5749F00BC4583 /* Color.swift */; };
@@ -55,6 +56,7 @@
 		5EC45C042CB4D2480018E888 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EC45C062CB4DBC10018E888 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5EC45C102CB4EADC0018E888 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		5EC45C122CB504850018E888 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5EEDF6532CA54C18009AD189 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		5EEDF6552CA553D6009AD189 /* UberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLocation.swift; sourceTree = "<group>"; };
 		5EF445CE2CA5749F00BC4583 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				5E932BF42CA136B900E2F624 /* MapViewState.swift */,
 				5E59A7C32CA2C065009152F0 /* RideType.swift */,
 				5EEDF6552CA553D6009AD189 /* UberLocation.swift */,
+				5EC45C122CB504850018E888 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 				5EEDF6542CA54C18009AD189 /* Double.swift in Sources */,
 				5EC45C112CB4EADC0018E888 /* AuthViewModel.swift in Sources */,
 				5EC45C032CB4CEDC0018E888 /* CustomInputField.swift in Sources */,
+				5EC45C132CB504850018E888 /* User.swift in Sources */,
 				5E932BF52CA136B900E2F624 /* MapViewState.swift in Sources */,
 				5E9AB8242C926EC50094543C /* MapViewActionButton.swift in Sources */,
 				5E13E84F2CB0F212007A6F9F /* LoginView.swift in Sources */,
