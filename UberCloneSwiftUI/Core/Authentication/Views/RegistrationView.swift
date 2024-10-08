@@ -30,39 +30,14 @@ struct RegistrationView: View {
                 
                 // input fields
                 VStack(spacing: 32) {
-                    // input field 1
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Email Address")
-                            .foregroundStyle(.white)
-                            .fontWeight(.semibold)
-                            .font(.footnote)
-                        
-                        TextField(text: $email) {
-                            Text(verbatim: "name@example.com")
-                                .foregroundStyle(.white)
-                        }
+                    CustomInputField(text: $email, 
+                                     title: "Email address",
+                                     placeholder: "name@example.com")
 
-                        Rectangle()
-                            .foregroundStyle(Color(.init(white: 1, alpha: 0.5)))
-                            .frame(width: UIScreen.main.bounds.width - 32, height: 0.7)
-                    }
-                    
-                    // input field 2
-                    VStack(alignment: .leading, spacing: 12) {
-                        Text("Password")
-                            .foregroundStyle(.white)
-                            .fontWeight(.semibold)
-                            .font(.footnote)
-                        
-                        TextField(text: $email) {
-                            Text("Enter your password")
-                                .foregroundStyle(.white)
-                        }
-
-                        Rectangle()
-                            .foregroundStyle(Color(.init(white: 1, alpha: 0.5)))
-                            .frame(width: UIScreen.main.bounds.width - 32, height: 0.7)
-                    }
+                    CustomInputField(text: $password, 
+                                     title: "Password",
+                                     placeholder: "Enter your password",
+                                     isSecureField: true)
                 }
                 .padding(.horizontal)
                 .padding(.top, 12)
@@ -146,7 +121,6 @@ struct RegistrationView: View {
                     }
                     .foregroundStyle(.white)
                 }
-
             }
         }
     }
