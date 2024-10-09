@@ -21,6 +21,7 @@ struct SideMenuOptionView: View {
             
             Spacer()
         }
+        .foregroundStyle(Color.theme.primaryTextColor)
     }
 }
 
