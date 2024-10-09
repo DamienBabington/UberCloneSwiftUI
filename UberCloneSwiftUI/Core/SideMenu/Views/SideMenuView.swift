@@ -26,7 +26,7 @@ struct SideMenuView: View {
                             .clipShape(Circle())
                             .frame(width: 64, height: 64)
                         
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text(user.fullName)
                                 .font(.system(size: 16, weight: .semibold))
                             
@@ -73,7 +73,16 @@ struct SideMenuView: View {
                     }
                 }
                 .navigationDestination(for: SideMenuOptionViewModel.self) { menuOption in
-                    Text(menuOption.title)
+                    switch menuOption {
+                    case .trips:
+                        Text("Trips")
+                    case .wallet:
+                        Text("Wallet")
+                    case .settings:
+                        SettingsView()
+                    case .messages:
+                        Text("Messages")
+                    }
                 }
                 
                 Spacer()
@@ -84,5 +93,7 @@ struct SideMenuView: View {
 }
 
 #Preview {
-    SideMenuView(user: User(uid: "12345", fullName: "John Doe", email: "johndoe@gmail.com"))
+    NavigationStack {
+        SideMenuView(user: User(uid: "12345", fullName: "John Doe", email: "johndoe@gmail.com"))
+    }
 }

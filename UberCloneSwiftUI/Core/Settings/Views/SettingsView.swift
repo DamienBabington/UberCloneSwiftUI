@@ -20,7 +20,7 @@ struct SettingsView: View {
                             .clipShape(Circle())
                             .frame(width: 64, height: 64)
                         
-                        VStack(alignment: .leading, spacing: 8) {
+                        VStack(alignment: .leading, spacing: 4) {
                             Text("Dame B")
                                 .font(.system(size: 16, weight: .semibold))
                             
@@ -37,6 +37,7 @@ struct SettingsView: View {
                             .font(.title2)
                             .foregroundStyle(.gray)
                     }
+                    .padding(4)
                 }
                 
                 // Favorites section
@@ -73,9 +74,13 @@ struct SettingsView: View {
                 }
             }
         }
+        .navigationTitle("Settings")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
 #Preview {
-    SettingsView()
+    NavigationStack {
+        SettingsView()
+    }
 }
