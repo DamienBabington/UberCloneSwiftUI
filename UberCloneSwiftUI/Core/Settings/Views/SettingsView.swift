@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
+    private let user: User
+    @EnvironmentObject var authViewModel: AuthViewModel
+    
+    init(user: User) {
+        self.user = user
+    }
+    
     var body: some View {
         VStack {
             List {
@@ -21,10 +28,10 @@ struct SettingsView: View {
                             .frame(width: 64, height: 64)
                         
                         VStack(alignment: .leading, spacing: 4) {
-                            Text("Dame B")
+                            Text(user.fullName)
                                 .font(.system(size: 16, weight: .semibold))
                             
-                            Text("dame@example.com")
+                            Text(user.email)
                                 .font(.system(size: 14))
                                 .accentColor(Color.theme.primaryTextColor)
                                 .opacity(0.77)
@@ -42,13 +49,13 @@ struct SettingsView: View {
                 
                 // Favorites section
                 Section("Favorites") {
-                    SavedLocationRowView(imageName: "house.circle.fill", 
-                                         title: "Home",
-                                         subtitle: "Add Home")
-                    
-                    SavedLocationRowView(imageName: "archivebox.circle.fill",
-                                         title: "Work",
-                                         subtitle: "Add Workplace")
+                    ForEach(SavedLocationViewModel.allCases) { viewModel in
+                        NavigationLink {
+                            Text(viewModel.title)
+                        } label: {
+                            SavedLocationRowView(viewModel: viewModel)
+                        }
+                    }
                 }
                 
                 // Settings section
@@ -71,6 +78,9 @@ struct SettingsView: View {
                     SettingsRowView(imageName: "arrow.left.circle.fill",
                                     title: "Signout",
                                     tintColor: Color(.systemRed))
+                    .onTapGesture {
+                        authViewModel.signout()
+                    }
                 }
             }
         }
@@ -81,6 +91,6 @@ struct SettingsView: View {
 
 #Preview {
     NavigationStack {
-        SettingsView()
+        SettingsView(user: User(uid: "12345", fullName: "John Doe", email: "johndoe@gmail.com"))
     }
 }

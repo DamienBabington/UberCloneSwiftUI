@@ -39,6 +39,7 @@
 		5EFC42F42CB6477C0054A1B9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC42F32CB6477C0054A1B9 /* SettingsView.swift */; };
 		5EFC42F62CB64A6D0054A1B9 /* SavedLocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC42F52CB64A6D0054A1B9 /* SavedLocationRowView.swift */; };
 		5EFC42F82CB64D810054A1B9 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC42F72CB64D810054A1B9 /* SettingsRowView.swift */; };
+		5EFC42FA2CB67F420054A1B9 /* SavedLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC42F92CB67F420054A1B9 /* SavedLocationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		5EFC42F32CB6477C0054A1B9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5EFC42F52CB64A6D0054A1B9 /* SavedLocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationRowView.swift; sourceTree = "<group>"; };
 		5EFC42F72CB64D810054A1B9 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		5EFC42F92CB67F420054A1B9 /* SavedLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -320,6 +322,7 @@
 		5EFC42F22CB647680054A1B9 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5EFC42F92CB67F420054A1B9 /* SavedLocationViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				5E932BF82CA17B9600E2F624 /* RideRequestView.swift in Sources */,
 				5EEDF6542CA54C18009AD189 /* Double.swift in Sources */,
 				5EC45C112CB4EADC0018E888 /* AuthViewModel.swift in Sources */,
+				5EFC42FA2CB67F420054A1B9 /* SavedLocationViewModel.swift in Sources */,
 				5EC45C032CB4CEDC0018E888 /* CustomInputField.swift in Sources */,
 				5EFC42F82CB64D810054A1B9 /* SettingsRowView.swift in Sources */,
 				5EFC42F42CB6477C0054A1B9 /* SettingsView.swift in Sources */,

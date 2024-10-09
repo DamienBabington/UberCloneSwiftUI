@@ -23,7 +23,6 @@ struct SettingsRowView: View {
                 .font(.system(size: 15))
                 .foregroundStyle(Color.theme.primaryTextColor)
         }
-        .padding(4)
     }
 }
 
