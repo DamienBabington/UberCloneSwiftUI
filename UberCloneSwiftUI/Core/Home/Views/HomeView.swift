@@ -43,7 +43,7 @@ extension HomeView {
                     .ignoresSafeArea()
                 
                 if mapState == .searchingForLocation {
-                    LocationSearchView(mapState: $mapState)
+                    LocationSearchView()
                 } else if mapState == .noInput {
                     LocationSearchActivationView()
                         .padding(.top, 72)
@@ -69,6 +69,11 @@ extension HomeView {
             // this modifier allows us to implement functionality when this observed property is updated
             if let location {
                 locationViewModel.userLocation = location
+            }
+        }
+        .onReceive(locationViewModel.$selectedUberLocation) { location in
+            if location != nil {
+                self.mapState = .locationSelected
             }
         }
     }

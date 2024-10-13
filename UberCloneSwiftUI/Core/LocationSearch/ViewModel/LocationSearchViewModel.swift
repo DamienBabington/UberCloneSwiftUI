@@ -8,6 +8,11 @@
 import Foundation
 import MapKit
 
+enum LocationResultsViewConfig {
+    case ride
+    case saveLocation
+}
+
 class LocationSearchViewModel: NSObject, ObservableObject {
     
     // MARK: - Properties
@@ -18,6 +23,7 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     @Published var dropoffTime: String?
     
     private let searchCompleter = MKLocalSearchCompleter()
+    
     var queryFragment: String = "" {
         didSet {
             searchCompleter.queryFragment = queryFragment
@@ -34,17 +40,22 @@ class LocationSearchViewModel: NSObject, ObservableObject {
     
     // MARK: - Helpers
     
-    func selectLocation(_ localSearch: MKLocalSearchCompletion) {
-        locationSearch(forLocalSearchCompletion: localSearch) { response, error in
-            if let error {
-                print("location search failed with error: \(error.localizedDescription)")
-                return
+    func selectLocation(_ localSearch: MKLocalSearchCompletion, config: LocationResultsViewConfig) {
+        switch config {
+        case .ride:
+            locationSearch(forLocalSearchCompletion: localSearch) { response, error in
+                if let error {
+                    print("location search failed with error: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let item = response?.mapItems.first else { return }
+                let coordinate = item.placemark.coordinate
+                self.selectedUberLocation = UberLocation(title: localSearch.title, coordinate: coordinate)
+                print("Location coordinates: \(coordinate)")
             }
-            
-            guard let item = response?.mapItems.first else { return }
-            let coordinate = item.placemark.coordinate
-            self.selectedUberLocation = UberLocation(title: localSearch.title, coordinate: coordinate)
-            print("Location coordinates: \(coordinate)")
+        case .saveLocation:
+            print("Saved location.")
         }
     }
     
