@@ -29,8 +29,15 @@ class AuthViewModel: ObservableObject {
             self.userSession = result?.user
             
             // encode user data and save to Firestore
-            let user = User(uid: firebaseUser.uid, fullName: fullName, email: email)
+            let user = User(
+                uid: firebaseUser.uid,
+                fullName: fullName,
+                email: email,
+                coordinates: GeoPoint(latitude: 38.38, longitude: -122.05),
+                accountType: .driver
+            )
             guard let encodedUser = try? Firestore.Encoder().encode(user) else { return }
+            
             Firestore.firestore().collection("users").document(firebaseUser.uid).setData(encodedUser)
         }
     }

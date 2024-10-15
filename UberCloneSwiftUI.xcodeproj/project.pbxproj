@@ -35,6 +35,7 @@
 		5EC45C1B2CB54B0A0018E888 /* SideMenuOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C1A2CB54B0A0018E888 /* SideMenuOptionViewModel.swift */; };
 		5EC45C1D2CB54BEF0018E888 /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C1C2CB54BEF0018E888 /* SideMenuOptionView.swift */; };
 		5EE360682CBB8A740039DB62 /* SavedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE360672CBB8A740039DB62 /* SavedLocation.swift */; };
+		5EECD63C2CBEA7D200E848A3 /* DeveloperPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EECD63B2CBEA7D200E848A3 /* DeveloperPreview.swift */; };
 		5EEDF6542CA54C18009AD189 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6532CA54C18009AD189 /* Double.swift */; };
 		5EEDF6562CA553D6009AD189 /* UberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6552CA553D6009AD189 /* UberLocation.swift */; };
 		5EF445CF2CA5749F00BC4583 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF445CE2CA5749F00BC4583 /* Color.swift */; };
@@ -72,6 +73,7 @@
 		5EC45C1A2CB54B0A0018E888 /* SideMenuOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionViewModel.swift; sourceTree = "<group>"; };
 		5EC45C1C2CB54BEF0018E888 /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
 		5EE360672CBB8A740039DB62 /* SavedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocation.swift; sourceTree = "<group>"; };
+		5EECD63B2CBEA7D200E848A3 /* DeveloperPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperPreview.swift; sourceTree = "<group>"; };
 		5EEDF6532CA54C18009AD189 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		5EEDF6552CA553D6009AD189 /* UberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLocation.swift; sourceTree = "<group>"; };
 		5EF445CE2CA5749F00BC4583 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				5EEDF6532CA54C18009AD189 /* Double.swift */,
 				5EF445CE2CA5749F00BC4583 /* Color.swift */,
+				5EECD63B2CBEA7D200E848A3 /* DeveloperPreview.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				5E699FB92C91B9CF003A9F0E /* LocationManager.swift in Sources */,
 				5EC45C1B2CB54B0A0018E888 /* SideMenuOptionViewModel.swift in Sources */,
 				5EC45C052CB4D2480018E888 /* RegistrationView.swift in Sources */,
+				5EECD63C2CBEA7D200E848A3 /* DeveloperPreview.swift in Sources */,
 				5E932BF82CA17B9600E2F624 /* RideRequestView.swift in Sources */,
 				5EEDF6542CA54C18009AD189 /* Double.swift in Sources */,
 				5EC45C112CB4EADC0018E888 /* AuthViewModel.swift in Sources */,
