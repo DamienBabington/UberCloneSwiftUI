@@ -29,6 +29,7 @@ struct HomeView: View {
                             .shadow(color: showSideMenu ? .black : .clear, radius: 10)
                     }
                 }
+                .navigationViewStyle(.stack)
             }
         }
     }

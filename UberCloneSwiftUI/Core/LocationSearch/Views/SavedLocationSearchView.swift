@@ -10,6 +10,7 @@ import SwiftUI
 struct SavedLocationSearchView: View {
     @State private var text: String = ""
     @StateObject var locationViewModel = LocationSearchViewModel()
+    let locationCategory: SavedLocationViewModel
     
     var body: some View {
         VStack {
@@ -29,14 +30,14 @@ struct SavedLocationSearchView: View {
             
             Spacer()
             
-            LocationSearchResultsView(locationViewModel: locationViewModel, config: .saveLocation)
+            LocationSearchResultsView(locationViewModel: locationViewModel, config: .saveLocation(locationCategory))
         }
-        .navigationTitle("Add Home")
+        .navigationTitle(locationCategory.subtitle)
     }
 }
 
 #Preview {
     NavigationStack {
-        SavedLocationSearchView()
+        SavedLocationSearchView(locationCategory: .home)
     }
 }

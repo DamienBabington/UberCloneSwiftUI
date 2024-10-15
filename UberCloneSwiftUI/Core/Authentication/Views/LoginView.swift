@@ -127,6 +127,7 @@ struct LoginView: View {
                 }
             }
         }
+        .navigationViewStyle(.stack)
     }
 }
 
