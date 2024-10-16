@@ -20,6 +20,8 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 struct UberCloneSwiftUIApp: App {
     @StateObject var locationViewModel = LocationSearchViewModel()
     @StateObject var authViewModel = AuthViewModel()
+    @StateObject var homeViewModel = HomeViewModel()
+    
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
     var body: some Scene {
@@ -27,6 +29,7 @@ struct UberCloneSwiftUIApp: App {
             HomeView()
                 .environmentObject(locationViewModel)
                 .environmentObject(authViewModel)
+                .environmentObject(homeViewModel)
         }
     }
 }

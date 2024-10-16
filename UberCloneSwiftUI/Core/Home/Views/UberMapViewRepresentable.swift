@@ -14,14 +14,14 @@ import MapKit
 
 struct UberMapViewRepresentable: UIViewRepresentable {
     
+    /* Don't update VM properties in this class or else it will cause a retain cycle since the VM is being observed.
+        Instead, use the LocationManager to update the VM's userLocation property in the HomeView
+     */
+    
     let mapView = MKMapView()
     @Binding var mapState: MapViewState
-    
-    /* Don't update VM properties in this class or else it will cause a retain cycle since the VM is being observed
-        Instead, use the LocationManager to update the VM's userLocation property in the HomeView, since it's okay
-        for the HomeView to update the VM.
-     */
     @EnvironmentObject var locationViewModel: LocationSearchViewModel
+    @EnvironmentObject var homeViewModel: HomeViewModel
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator
@@ -35,6 +35,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
         switch mapState {
         case .noInput:
             context.coordinator.clearAndRecenterMapView()
+            context.coordinator.addDriversToMap(homeViewModel.drivers)
             break
         case .searchingForLocation:
             break
@@ -96,6 +97,7 @@ extension UberMapViewRepresentable {
         
         func addAnnotation(withCoordinate coordinate: CLLocationCoordinate2D) {
             parent.mapView.removeAnnotations(parent.mapView.annotations)
+            
             let anno = MKPointAnnotation()
             anno.coordinate = coordinate
             parent.mapView.addAnnotation(anno)
@@ -122,6 +124,17 @@ extension UberMapViewRepresentable {
             // recenter map view
             if let currentRegion {
                 parent.mapView.setRegion(currentRegion, animated: true)
+            }
+        }
+        
+        func addDriversToMap(_ drivers: [User]) {
+            for driver in drivers {
+                let coordinate = CLLocationCoordinate2D(latitude: driver.coordinates.latitude, 
+                                                        longitude: driver.coordinates.longitude)
+                
+                let anno = MKPointAnnotation()
+                anno.coordinate = coordinate
+                parent.mapView.addAnnotation(anno)
             }
         }
     }
