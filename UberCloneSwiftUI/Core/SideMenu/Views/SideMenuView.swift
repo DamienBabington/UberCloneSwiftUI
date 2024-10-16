@@ -48,7 +48,7 @@ struct SideMenuView: View {
                                 .font(.title2)
                                 .imageScale(.medium)
                             
-                            Text("make money driving")
+                            Text("Make money driving")
                                 .font(.system(size: 16, weight: .semibold))
                                 .padding(6)
                         }

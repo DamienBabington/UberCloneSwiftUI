@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E13E84F2CB0F212007A6F9F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E13E84E2CB0F212007A6F9F /* LoginView.swift */; };
+		5E2337782CBF67B900FE8E6D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2337772CBF67B900FE8E6D /* HomeViewModel.swift */; };
 		5E4D9C212CBA83EE00BF007E /* LocationSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D9C202CBA83EE00BF007E /* LocationSearchResultsView.swift */; };
 		5E59A7C42CA2C065009152F0 /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E59A7C32CA2C065009152F0 /* RideType.swift */; };
 		5E699FB52C91B4D7003A9F0E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E699FB42C91B4D7003A9F0E /* HomeView.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		5E13E84E2CB0F212007A6F9F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		5E2337772CBF67B900FE8E6D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		5E4D9C202CBA83EE00BF007E /* LocationSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsView.swift; sourceTree = "<group>"; };
 		5E59A7C32CA2C065009152F0 /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
 		5E699FB42C91B4D7003A9F0E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		5E699FB32C91B493003A9F0E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				5E2337772CBF67B900FE8E6D /* HomeViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				5E9AB82A2C927AC70094543C /* LocationSearchViewModel.swift in Sources */,
 				5EFC42FC2CB6B37B0054A1B9 /* SavedLocationSearchView.swift in Sources */,
 				5EFC42F62CB64A6D0054A1B9 /* SavedLocationRowView.swift in Sources */,
+				5E2337782CBF67B900FE8E6D /* HomeViewModel.swift in Sources */,
 				5E9AB8262C92712D0094543C /* LocationSearchView.swift in Sources */,
 				5E699FB92C91B9CF003A9F0E /* LocationManager.swift in Sources */,
 				5EC45C1B2CB54B0A0018E888 /* SideMenuOptionViewModel.swift in Sources */,
