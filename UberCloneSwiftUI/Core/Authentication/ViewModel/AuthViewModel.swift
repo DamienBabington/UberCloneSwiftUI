@@ -8,10 +8,13 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
+import Combine
 
 class AuthViewModel: ObservableObject {
     @Published var userSession: FirebaseAuth.User?
     @Published var currentUser: User?
+    private let service = UserService.shared
+    private var cancellables = Set<AnyCancellable>()
     
     init() {
         userSession = Auth.auth().currentUser
@@ -66,19 +69,10 @@ class AuthViewModel: ObservableObject {
     }
     
     func fetchUser() {
-        guard let uid = self.userSession?.uid else { return }
-        
-        // get current user's data from Firestore
-        Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
-            if let error {
-                print("Failed to fetch user data with error: \(error.localizedDescription)")
-                return
+        service.$user
+            .sink { user in
+                self.currentUser = user
             }
-            guard let snapshot else { return }
-            
-            // decode snapshot data to our User data type and update VM's published user property
-            guard let user = try? snapshot.data(as: User.self) else { return }
-            self.currentUser = user
-        }
+            .store(in: &cancellables)
     }
 }

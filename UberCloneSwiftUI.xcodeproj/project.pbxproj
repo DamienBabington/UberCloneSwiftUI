@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5E13E84F2CB0F212007A6F9F /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E13E84E2CB0F212007A6F9F /* LoginView.swift */; };
 		5E2337782CBF67B900FE8E6D /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2337772CBF67B900FE8E6D /* HomeViewModel.swift */; };
+		5E23377A2CC0D7B100FE8E6D /* DriverAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E2337792CC0D7B100FE8E6D /* DriverAnnotation.swift */; };
+		5E23377E2CC0EBA800FE8E6D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E23377D2CC0EBA800FE8E6D /* UserService.swift */; };
 		5E4D9C212CBA83EE00BF007E /* LocationSearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D9C202CBA83EE00BF007E /* LocationSearchResultsView.swift */; };
 		5E59A7C42CA2C065009152F0 /* RideType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E59A7C32CA2C065009152F0 /* RideType.swift */; };
 		5E699FB52C91B4D7003A9F0E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E699FB42C91B4D7003A9F0E /* HomeView.swift */; };
@@ -50,6 +52,8 @@
 /* Begin PBXFileReference section */
 		5E13E84E2CB0F212007A6F9F /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5E2337772CBF67B900FE8E6D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		5E2337792CC0D7B100FE8E6D /* DriverAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAnnotation.swift; sourceTree = "<group>"; };
+		5E23377D2CC0EBA800FE8E6D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		5E4D9C202CBA83EE00BF007E /* LocationSearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultsView.swift; sourceTree = "<group>"; };
 		5E59A7C32CA2C065009152F0 /* RideType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideType.swift; sourceTree = "<group>"; };
 		5E699FB42C91B4D7003A9F0E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -126,6 +130,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		5E23377C2CC0EB9C00FE8E6D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				5E23377D2CC0EBA800FE8E6D /* UserService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		5E699FAD2C91B463003A9F0E /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +195,7 @@
 				5EEDF6552CA553D6009AD189 /* UberLocation.swift */,
 				5EC45C122CB504850018E888 /* User.swift */,
 				5EE360672CBB8A740039DB62 /* SavedLocation.swift */,
+				5E2337792CC0D7B100FE8E6D /* DriverAnnotation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -214,6 +227,7 @@
 		5E8BABA92C91B226002761FD /* UberCloneSwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				5E23377C2CC0EB9C00FE8E6D /* Services */,
 				5EC45C012CB4CEBE0018E888 /* ReusableItems */,
 				5E699FAF2C91B473003A9F0E /* App */,
 				5E699FAD2C91B463003A9F0E /* Core */,
@@ -427,6 +441,7 @@
 				5E2337782CBF67B900FE8E6D /* HomeViewModel.swift in Sources */,
 				5E9AB8262C92712D0094543C /* LocationSearchView.swift in Sources */,
 				5E699FB92C91B9CF003A9F0E /* LocationManager.swift in Sources */,
+				5E23377E2CC0EBA800FE8E6D /* UserService.swift in Sources */,
 				5EC45C1B2CB54B0A0018E888 /* SideMenuOptionViewModel.swift in Sources */,
 				5EC45C052CB4D2480018E888 /* RegistrationView.swift in Sources */,
 				5EECD63C2CBEA7D200E848A3 /* DeveloperPreview.swift in Sources */,
@@ -434,6 +449,7 @@
 				5EEDF6542CA54C18009AD189 /* Double.swift in Sources */,
 				5EC45C112CB4EADC0018E888 /* AuthViewModel.swift in Sources */,
 				5E4D9C212CBA83EE00BF007E /* LocationSearchResultsView.swift in Sources */,
+				5E23377A2CC0D7B100FE8E6D /* DriverAnnotation.swift in Sources */,
 				5EFC42FA2CB67F420054A1B9 /* SavedLocationViewModel.swift in Sources */,
 				5EC45C032CB4CEDC0018E888 /* CustomInputField.swift in Sources */,
 				5EFC42F82CB64D810054A1B9 /* SettingsRowView.swift in Sources */,

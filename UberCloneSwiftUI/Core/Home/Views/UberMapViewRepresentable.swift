@@ -41,8 +41,7 @@ struct UberMapViewRepresentable: UIViewRepresentable {
             break
         case .locationSelected:
             if let coordinate = locationViewModel.selectedUberLocation?.coordinate {
-                print("Update map")
-                context.coordinator.addAnnotation(withCoordinate: coordinate)
+                context.coordinator.addAndSelectAnnotation(withCoordinate: coordinate)
                 context.coordinator.configurePolyline(with: coordinate)
             }
             break
@@ -93,9 +92,20 @@ extension UberMapViewRepresentable {
             return polyline
         }
         
+        func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
+            if let annotation = annotation as? DriverAnnotation {
+                let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "driver")
+                view.image = UIImage(named: "chevron-sign-to-right")
+                print("returning driver annotation view")
+                return view
+            }
+            print("No driver annotation, returning nil")
+            return nil
+        }
+        
         // MARK: - Helpers
         
-        func addAnnotation(withCoordinate coordinate: CLLocationCoordinate2D) {
+        func addAndSelectAnnotation(withCoordinate coordinate: CLLocationCoordinate2D) {
             parent.mapView.removeAnnotations(parent.mapView.annotations)
             
             let anno = MKPointAnnotation()
@@ -128,14 +138,8 @@ extension UberMapViewRepresentable {
         }
         
         func addDriversToMap(_ drivers: [User]) {
-            for driver in drivers {
-                let coordinate = CLLocationCoordinate2D(latitude: driver.coordinates.latitude, 
-                                                        longitude: driver.coordinates.longitude)
-                
-                let anno = MKPointAnnotation()
-                anno.coordinate = coordinate
-                parent.mapView.addAnnotation(anno)
-            }
+            let annotations = drivers.map({ DriverAnnotation(driver: $0) })
+            self.parent.mapView.addAnnotations(annotations)
         }
     }
 }
