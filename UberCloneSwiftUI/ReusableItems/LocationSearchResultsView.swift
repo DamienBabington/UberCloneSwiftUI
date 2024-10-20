@@ -8,17 +8,17 @@
 import SwiftUI
 
 struct LocationSearchResultsView: View {
-    @StateObject var locationViewModel: LocationSearchViewModel
+    @StateObject var viewModel: HomeViewModel
     let config: LocationResultsViewConfig
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                ForEach(locationViewModel.results, id: \.self) { result in
+                ForEach(viewModel.results, id: \.self) { result in
                     LocationSearchResultCell(title: result.title, subtitle: result.subtitle)
                         .onTapGesture {
                             withAnimation(.spring) {
-                                locationViewModel.selectLocation(result, config: config)
+                                viewModel.selectLocation(result, config: config)
                             }
                         }
                 }

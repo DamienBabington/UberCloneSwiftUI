@@ -18,7 +18,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct UberCloneSwiftUIApp: App {
-    @StateObject var locationViewModel = LocationSearchViewModel()
     @StateObject var authViewModel = AuthViewModel()
     @StateObject var homeViewModel = HomeViewModel()
     
@@ -27,7 +26,6 @@ struct UberCloneSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
             HomeView()
-                .environmentObject(locationViewModel)
                 .environmentObject(authViewModel)
                 .environmentObject(homeViewModel)
         }

@@ -26,6 +26,7 @@
 		5E9AB8262C92712D0094543C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8252C92712D0094543C /* LocationSearchView.swift */; };
 		5E9AB8282C92731E0094543C /* LocationSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8272C92731E0094543C /* LocationSearchResultCell.swift */; };
 		5E9AB82A2C927AC70094543C /* LocationSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8292C927AC70094543C /* LocationSearchViewModel.swift */; };
+		5EBD70092CC3A2B800D81153 /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD70082CC3A2B800D81153 /* Trip.swift */; };
 		5EC45C032CB4CEDC0018E888 /* CustomInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C022CB4CEDC0018E888 /* CustomInputField.swift */; };
 		5EC45C052CB4D2480018E888 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C042CB4D2480018E888 /* RegistrationView.swift */; };
 		5EC45C072CB4DBC10018E888 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC45C062CB4DBC10018E888 /* GoogleService-Info.plist */; };
@@ -71,6 +72,7 @@
 		5E9AB8252C92712D0094543C /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
 		5E9AB8272C92731E0094543C /* LocationSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchResultCell.swift; sourceTree = "<group>"; };
 		5E9AB8292C927AC70094543C /* LocationSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchViewModel.swift; sourceTree = "<group>"; };
+		5EBD70082CC3A2B800D81153 /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		5EC45C022CB4CEDC0018E888 /* CustomInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInputField.swift; sourceTree = "<group>"; };
 		5EC45C042CB4D2480018E888 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		5EC45C062CB4DBC10018E888 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				5EC45C122CB504850018E888 /* User.swift */,
 				5EE360672CBB8A740039DB62 /* SavedLocation.swift */,
 				5E2337792CC0D7B100FE8E6D /* DriverAnnotation.swift */,
+				5EBD70082CC3A2B800D81153 /* Trip.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				5EECD63C2CBEA7D200E848A3 /* DeveloperPreview.swift in Sources */,
 				5E932BF82CA17B9600E2F624 /* RideRequestView.swift in Sources */,
 				5EC68E302CC38C8600258695 /* AcceptTripView.swift in Sources */,
+				5EBD70092CC3A2B800D81153 /* Trip.swift in Sources */,
 				5EEDF6542CA54C18009AD189 /* Double.swift in Sources */,
 				5EC45C112CB4EADC0018E888 /* AuthViewModel.swift in Sources */,
 				5E4D9C212CBA83EE00BF007E /* LocationSearchResultsView.swift in Sources */,
