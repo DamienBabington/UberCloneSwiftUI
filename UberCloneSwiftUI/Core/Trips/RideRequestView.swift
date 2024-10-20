@@ -139,7 +139,7 @@ struct RideRequestView: View {
             
             // request ride button
             Button {
-                
+                viewModel.requestTrip()
             } label: {
                 Text("CONFIRM RIDE")
                     .fontWeight(.bold)
