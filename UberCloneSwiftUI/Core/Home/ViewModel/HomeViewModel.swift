@@ -90,7 +90,6 @@ extension HomeViewModel {
             let tripCost = self.computeRidePrice(for: .uberX)
             
             let trip = Trip(
-                id: NSUUID().uuidString,
                 passengerUid: currentUser.uid,
                 driverUid: driver.uid,
                 passengerName: currentUser.fullName,
@@ -104,7 +103,8 @@ extension HomeViewModel {
                 dropoffLocation: dropoffGeoPoint,
                 tripCost: tripCost,
                 distanceToPassenger: 0,
-                travelTimeToPassenger: 0
+                travelTimeToPassenger: 0,
+                tripState: .requested
             )
             
             guard let encodedTrip = try? Firestore.Encoder().encode(trip) else { return }
@@ -134,6 +134,24 @@ extension HomeViewModel {
                     self.trip?.distanceToPassenger = route.distance
                 }
             }
+    }
+    
+    func rejectTrip() {
+        updateTripState(state: .rejected)
+    }
+    
+    func acceptTrip() {
+        updateTripState(state: .accepted)
+    }
+    
+    private func updateTripState(state: TripState) {
+        guard let trip else { return }
+        
+        Firestore.firestore().collection("trips").document(trip.id).updateData([
+            "tripState": state.rawValue
+        ]) { _ in
+            print("Did update trip with state: \(state)")
+        }
     }
 }
 
