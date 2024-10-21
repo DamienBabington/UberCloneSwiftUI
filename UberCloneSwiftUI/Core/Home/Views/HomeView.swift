@@ -60,14 +60,18 @@ extension HomeView {
                     .padding(.top, 4)
             }
             
-            if mapState == .locationSelected || mapState == .mapUpdated {
-                RideRequestView()
-                    .transition(.move(edge: .bottom))
-            }
-            
-            if let trip = homeViewModel.trip {
-                AcceptTripView(trip: trip)
-                    .transition(.move(edge: .bottom))
+            if let user = authViewModel.currentUser {
+                if user.accountType == .passenger {
+                    if mapState == .locationSelected || mapState == .mapUpdated {
+                        RideRequestView()
+                            .transition(.move(edge: .bottom))
+                    }
+                } else {
+                    if let trip = homeViewModel.trip {
+                        AcceptTripView(trip: trip)
+                            .transition(.move(edge: .bottom))
+                    }
+                }
             }
         }
         .edgesIgnoringSafeArea(.bottom)
@@ -80,6 +84,18 @@ extension HomeView {
         .onReceive(homeViewModel.$selectedUberLocation) { location in
             if location != nil {
                 self.mapState = .locationSelected
+            }
+        }
+        .onReceive(homeViewModel.$trip) { trip in
+            guard let trip else { return }
+            
+            switch trip.tripState {
+            case .requested:
+                print("HomeView received requested trip")
+            case .rejected:
+                print("HomeView received rejected trip")
+            case.accepted:
+                print("HomeView received accepted trip")
             }
         }
     }

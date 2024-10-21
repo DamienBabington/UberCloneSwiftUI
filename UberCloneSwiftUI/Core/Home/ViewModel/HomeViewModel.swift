@@ -54,6 +54,7 @@ class HomeViewModel: NSObject, ObservableObject {
 
                 if user.accountType == .passenger {
                     self.fetchDrivers()
+                    self.addTripObserverForPassenger()
                 } else {
                     self.fetchTrips()
                 }
@@ -62,10 +63,24 @@ class HomeViewModel: NSObject, ObservableObject {
     }
 }
 
-
 // MARK: - Passenger API
 
 extension HomeViewModel {
+    
+    func addTripObserverForPassenger() {
+        guard let currentUser, currentUser.accountType == .passenger else { return }
+        Firestore.firestore().collection("trips")
+            .whereField("passengerUid", isEqualTo: currentUser.uid)
+            .addSnapshotListener { snapshot, _ in
+                guard let change = snapshot?.documentChanges.first,
+                        change.type == .added || change.type == .modified else { return }
+                
+                guard let trip = try? change.document.data(as: Trip.self) else { return }
+                self.trip = trip
+                
+                print("Updated trip state: \(trip.tripState)")
+        }
+    }
     
     func fetchDrivers() {
         Firestore.firestore().collection("users")
@@ -115,7 +130,6 @@ extension HomeViewModel {
     }
 }
 
-
 // MARK: - Driver API
 
 extension HomeViewModel {
@@ -154,7 +168,6 @@ extension HomeViewModel {
         }
     }
 }
-
 
 // MARK: - Location Search Helpers
 
@@ -273,7 +286,6 @@ extension HomeViewModel {
     }
     
 }
-
 
 // MARK: - MKLocalSearchCompleterDelegate
 
