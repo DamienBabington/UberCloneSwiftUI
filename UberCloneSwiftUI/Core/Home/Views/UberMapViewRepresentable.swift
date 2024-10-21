@@ -95,10 +95,8 @@ extension UberMapViewRepresentable {
             if let annotation = annotation as? DriverAnnotation {
                 let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "driver")
                 view.image = UIImage(named: "chevron-sign-to-right")
-                print("returning driver annotation view")
                 return view
             }
-            print("No driver annotation, returning nil")
             return nil
         }
         

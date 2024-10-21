@@ -11,11 +11,18 @@ import MapKit
 struct AcceptTripView: View {
     
     @State private var region: MKCoordinateRegion
+    let trip: Trip
+    let annotationItem: UberLocation
     
-    init() {
-        let center = CLLocationCoordinate2D(latitude: 37.3346, longitude: -122.0090)
+    init(trip: Trip) {
+        let center = CLLocationCoordinate2D(latitude: trip.pickupLocation.latitude,
+                                            longitude: trip.pickupLocation.longitude)
+        
         let span = MKCoordinateSpan(latitudeDelta: 0.025, longitudeDelta: 0.025)
         self.region = MKCoordinateRegion(center: center, span: span)
+        self.trip = trip
+        self.annotationItem = UberLocation(title: trip.pickupLocationName,
+                                           coordinate: trip.pickupLocation.toCoordinate())
     }
     
     var body: some View {
@@ -38,7 +45,7 @@ struct AcceptTripView: View {
                     Spacer()
                     
                     VStack {
-                        Text("$10")
+                        Text("10")
                             .bold()
                         
                         Text("min")
@@ -65,7 +72,7 @@ struct AcceptTripView: View {
                         .clipShape(Circle())
                     
                     VStack(alignment: .leading, spacing: 4) {
-                        Text("FULL NAME")
+                        Text(trip.passengerName)
                             .fontWeight(.bold)
                         
                         HStack {
@@ -84,7 +91,7 @@ struct AcceptTripView: View {
                     VStack(spacing: 6) {
                         Text("Earnings")
                         
-                        Text("$22.04")
+                        Text(trip.tripCost.toCurrency())
                             .font(.system(size: 24, weight: .semibold))
                     }
                 }
@@ -98,10 +105,10 @@ struct AcceptTripView: View {
                 HStack {
                     // address info
                     VStack(alignment: .leading, spacing: 6) {
-                        Text("Apple campus")
+                        Text(trip.pickupLocationName)
                             .font(.headline)
                         
-                        Text("Infinite Loop 1, Santa Clara County")
+                        Text(trip.pickupLocationAddress)
                             .font(.subheadline)
                             .foregroundStyle(.gray)
                     }
@@ -122,11 +129,13 @@ struct AcceptTripView: View {
                 .padding(.horizontal)
                 
                 // map
-                Map(coordinateRegion: $region)
-                    .frame(height: 220)
-                    .cornerRadius(10)
-                    .shadow(color: .black.opacity(0.6), radius: 10)
-                    .padding()
+                Map(coordinateRegion: $region, annotationItems: [annotationItem]) { item in
+                    MapMarker(coordinate: item.coordinate)
+                }
+                .frame(height: 220)
+                .cornerRadius(10)
+                .shadow(color: .black.opacity(0.6), radius: 10)
+                .padding()
                 
                 Divider()
                     .padding(.horizontal)
@@ -165,9 +174,16 @@ struct AcceptTripView: View {
             .padding(.top)
             .padding(.horizontal)
         }
+        .background(Color.theme.backgroundColor)
     }
 }
 
-#Preview {
-    AcceptTripView()
+
+struct AcceptTripView_Previews: PreviewProvider {
+    static var previews: some View {
+        AcceptTripView(trip: dev.mockTrip)
+//        NavigationStack {
+//            SettingsView(user: dev.mockUser)
+//        }
+    }
 }

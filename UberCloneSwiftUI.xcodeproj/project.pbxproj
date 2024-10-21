@@ -21,6 +21,7 @@
 		5E8BABB22C91B22C002761FD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E8BABB12C91B22C002761FD /* Preview Assets.xcassets */; };
 		5E932BF52CA136B900E2F624 /* MapViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E932BF42CA136B900E2F624 /* MapViewState.swift */; };
 		5E932BF82CA17B9600E2F624 /* RideRequestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E932BF72CA17B9600E2F624 /* RideRequestView.swift */; };
+		5E9A37BF2CC60D32008D714A /* GeoPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A37BE2CC60D32008D714A /* GeoPoint.swift */; };
 		5E9AB8222C926D8B0094543C /* LocationSearchActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8212C926D8B0094543C /* LocationSearchActivationView.swift */; };
 		5E9AB8242C926EC50094543C /* MapViewActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8232C926EC50094543C /* MapViewActionButton.swift */; };
 		5E9AB8262C92712D0094543C /* LocationSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9AB8252C92712D0094543C /* LocationSearchView.swift */; };
@@ -67,6 +68,7 @@
 		5E8BABB12C91B22C002761FD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5E932BF42CA136B900E2F624 /* MapViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewState.swift; sourceTree = "<group>"; };
 		5E932BF72CA17B9600E2F624 /* RideRequestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestView.swift; sourceTree = "<group>"; };
+		5E9A37BE2CC60D32008D714A /* GeoPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoPoint.swift; sourceTree = "<group>"; };
 		5E9AB8212C926D8B0094543C /* LocationSearchActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchActivationView.swift; sourceTree = "<group>"; };
 		5E9AB8232C926EC50094543C /* MapViewActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewActionButton.swift; sourceTree = "<group>"; };
 		5E9AB8252C92712D0094543C /* LocationSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSearchView.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				5EEDF6532CA54C18009AD189 /* Double.swift */,
 				5EF445CE2CA5749F00BC4583 /* Color.swift */,
 				5EECD63B2CBEA7D200E848A3 /* DeveloperPreview.swift */,
+				5E9A37BE2CC60D32008D714A /* GeoPoint.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -447,6 +450,7 @@
 				5E2337782CBF67B900FE8E6D /* HomeViewModel.swift in Sources */,
 				5E9AB8262C92712D0094543C /* LocationSearchView.swift in Sources */,
 				5E699FB92C91B9CF003A9F0E /* LocationManager.swift in Sources */,
+				5E9A37BF2CC60D32008D714A /* GeoPoint.swift in Sources */,
 				5E23377E2CC0EBA800FE8E6D /* UserService.swift in Sources */,
 				5EC45C1B2CB54B0A0018E888 /* SideMenuOptionViewModel.swift in Sources */,
 				5EC45C052CB4D2480018E888 /* RegistrationView.swift in Sources */,

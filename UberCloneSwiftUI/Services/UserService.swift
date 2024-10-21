@@ -14,7 +14,6 @@ class UserService: ObservableObject {
     @Published var user: User?
     
     init() {
-        print("Did init user service")
         fetchUser()
     }
     
@@ -22,8 +21,6 @@ class UserService: ObservableObject {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         Firestore.firestore().collection("users").document(uid).getDocument { snapshot, error in
-            print("Did fetch user from Firestore")
-            
             if let error {
                 print("Failed to fetch user data with error: \(error.localizedDescription)")
                 return
