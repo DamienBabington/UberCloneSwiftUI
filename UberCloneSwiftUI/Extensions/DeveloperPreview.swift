@@ -30,7 +30,9 @@ class DeveloperPreview {
         dropoffLocationName: "Starbucks",
         pickupLocation: .init(latitude: 37.456, longitude: -122.15),
         dropoffLocation: .init(latitude: 37.042, longitude: -122.2),
-        tripCost: 47.0
+        tripCost: 47.0,
+        distanceToPassenger: 1000,
+        travelTimeToPassenger: 24
     )
     
     let mockUser = User(
