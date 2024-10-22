@@ -47,6 +47,26 @@ class HomeViewModel: NSObject, ObservableObject {
     
     // MARK: - Helpers
     
+    var tripCancelledMessage: String {
+        guard let user = currentUser, let trip else { return "" }
+        
+        if user.accountType == .passenger {
+            if trip.state == .driverCancelled {
+                return "Your driver cancelled this trip."
+            } else if trip.state == .passengerCancelled {
+                return "Your trip has been cancelled."
+            }
+        } else {
+            if trip.state == .driverCancelled {
+                return "Your trip has been cancelled."
+            } else if trip.state == .passengerCancelled {
+                return "The trip has been cancelled by the passenger."
+            }
+        }
+        
+        return ""
+    }
+    
     func viewForState(_ state: MapViewState, user: User) -> some View {
         switch state {
         case .polylineAdded, .locationSelected:
@@ -67,10 +87,8 @@ class HomeViewModel: NSObject, ObservableObject {
                     return AnyView(PickUpPassengerView(trip: trip))
                 }
             }
-        case .tripCancelledByPassenger:
-            return AnyView(Text("Trip cancelled by passenger"))
-        case .tripCancelledByDriver:
-            return AnyView(Text("Trip cancelled by driver"))
+        case .tripCancelledByPassenger, .tripCancelledByDriver:
+            return AnyView(TripCancelledView())
         default:
             break
         }
@@ -99,7 +117,7 @@ class HomeViewModel: NSObject, ObservableObject {
     private func updateTripState(state: TripState) {
         guard let trip else { return }
         
-        var data = ["tripState": state.rawValue]
+        var data = ["state": state.rawValue]
         
         if state == .accepted {
             data["travelTimeToPassenger"] = trip.travelTimeToPassenger
@@ -107,6 +125,13 @@ class HomeViewModel: NSObject, ObservableObject {
         
         Firestore.firestore().collection("trips").document(trip.id).updateData(data) { _ in
             print("Did update trip with state: \(state)")
+        }
+    }
+    
+    func deleteTrip() {
+        guard let trip else { return }
+        Firestore.firestore().collection("trips").document(trip.id).delete { _ in
+            self.trip = nil
         }
     }
 }
@@ -126,7 +151,7 @@ extension HomeViewModel {
                 guard let trip = try? change.document.data(as: Trip.self) else { return }
                 self.trip = trip
                 
-                print("Updated trip state: \(trip.tripState)")
+                print("Updated trip state: \(trip.state)")
         }
     }
     
@@ -167,7 +192,7 @@ extension HomeViewModel {
                 tripCost: tripCost,
                 distanceToPassenger: 0,
                 travelTimeToPassenger: 0,
-                tripState: .requested
+                state: .requested
             )
             
             guard let encodedTrip = try? Firestore.Encoder().encode(trip) else { return }

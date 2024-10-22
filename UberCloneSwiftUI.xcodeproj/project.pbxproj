@@ -40,6 +40,7 @@
 		5EC45C1B2CB54B0A0018E888 /* SideMenuOptionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C1A2CB54B0A0018E888 /* SideMenuOptionViewModel.swift */; };
 		5EC45C1D2CB54BEF0018E888 /* SideMenuOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC45C1C2CB54BEF0018E888 /* SideMenuOptionView.swift */; };
 		5EC68E302CC38C8600258695 /* AcceptTripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC68E2F2CC38C8600258695 /* AcceptTripView.swift */; };
+		5ED3E7D52CC7B06400ACA90C /* TripCancelledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED3E7D42CC7B06400ACA90C /* TripCancelledView.swift */; };
 		5ED581232CC66E5A000F3556 /* TripLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED581222CC66E5A000F3556 /* TripLoadingView.swift */; };
 		5ED581252CC66EB1000F3556 /* TripAcceptedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED581242CC66EB1000F3556 /* TripAcceptedView.swift */; };
 		5ED581272CC673FA000F3556 /* Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED581262CC673FA000F3556 /* Spinner.swift */; };
@@ -88,6 +89,7 @@
 		5EC45C1A2CB54B0A0018E888 /* SideMenuOptionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionViewModel.swift; sourceTree = "<group>"; };
 		5EC45C1C2CB54BEF0018E888 /* SideMenuOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuOptionView.swift; sourceTree = "<group>"; };
 		5EC68E2F2CC38C8600258695 /* AcceptTripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptTripView.swift; sourceTree = "<group>"; };
+		5ED3E7D42CC7B06400ACA90C /* TripCancelledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripCancelledView.swift; sourceTree = "<group>"; };
 		5ED581222CC66E5A000F3556 /* TripLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripLoadingView.swift; sourceTree = "<group>"; };
 		5ED581242CC66EB1000F3556 /* TripAcceptedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripAcceptedView.swift; sourceTree = "<group>"; };
 		5ED581262CC673FA000F3556 /* Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spinner.swift; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		5E932BF62CA17B8400E2F624 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
+				5ED3E7D32CC7B05500ACA90C /* Shared */,
 				5EF68A982CC77F8D005F4CED /* Passengers */,
 				5EF68A972CC77F87005F4CED /* Drivers */,
 			);
@@ -347,6 +350,14 @@
 				5EC45C1C2CB54BEF0018E888 /* SideMenuOptionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5ED3E7D32CC7B05500ACA90C /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				5ED3E7D42CC7B06400ACA90C /* TripCancelledView.swift */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		5EF68A972CC77F87005F4CED /* Drivers */ = {
@@ -499,6 +510,7 @@
 				5EC45C132CB504850018E888 /* User.swift in Sources */,
 				5EE360682CBB8A740039DB62 /* SavedLocation.swift in Sources */,
 				5E932BF52CA136B900E2F624 /* MapViewState.swift in Sources */,
+				5ED3E7D52CC7B06400ACA90C /* TripCancelledView.swift in Sources */,
 				5ED581252CC66EB1000F3556 /* TripAcceptedView.swift in Sources */,
 				5E9AB8242C926EC50094543C /* MapViewActionButton.swift in Sources */,
 				5E13E84F2CB0F212007A6F9F /* LoginView.swift in Sources */,

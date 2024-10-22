@@ -78,10 +78,13 @@ extension HomeView {
             }
         }
         .onReceive(homeViewModel.$trip) { trip in
-            guard let trip else { return }
+            guard let trip else {
+                self.mapState = .noInput
+                return
+            }
             
             withAnimation(.spring()) {
-                switch trip.tripState {
+                switch trip.state {
                 case .requested:
                     self.mapState = .tripRequested
                 case .rejected:

@@ -32,7 +32,7 @@ struct Trip: Identifiable, Codable {
     let tripCost: Double
     var distanceToPassenger: Double
     var travelTimeToPassenger: Int
-    var tripState: TripState
+    var state: TripState
     
     var id: String {
         return tripId ?? ""

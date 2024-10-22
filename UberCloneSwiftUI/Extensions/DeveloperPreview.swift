@@ -32,7 +32,7 @@ class DeveloperPreview {
         tripCost: 47.0,
         distanceToPassenger: 1000,
         travelTimeToPassenger: 24,
-        tripState: .rejected
+        state: .rejected
     )
     
     let mockUser = User(
