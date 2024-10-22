@@ -186,8 +186,5 @@ struct AcceptTripView: View {
 struct AcceptTripView_Previews: PreviewProvider {
     static var previews: some View {
         AcceptTripView(trip: dev.mockTrip)
-//        NavigationStack {
-//            SettingsView(user: dev.mockUser)
-//        }
     }
 }

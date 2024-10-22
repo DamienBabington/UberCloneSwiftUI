@@ -48,6 +48,7 @@
 		5EEDF6542CA54C18009AD189 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6532CA54C18009AD189 /* Double.swift */; };
 		5EEDF6562CA553D6009AD189 /* UberLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEDF6552CA553D6009AD189 /* UberLocation.swift */; };
 		5EF445CF2CA5749F00BC4583 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF445CE2CA5749F00BC4583 /* Color.swift */; };
+		5EF68A9A2CC77FC7005F4CED /* PickUpPassengerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF68A992CC77FC7005F4CED /* PickUpPassengerView.swift */; };
 		5EFC42F42CB6477C0054A1B9 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC42F32CB6477C0054A1B9 /* SettingsView.swift */; };
 		5EFC42F62CB64A6D0054A1B9 /* SavedLocationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC42F52CB64A6D0054A1B9 /* SavedLocationRowView.swift */; };
 		5EFC42F82CB64D810054A1B9 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFC42F72CB64D810054A1B9 /* SettingsRowView.swift */; };
@@ -95,6 +96,7 @@
 		5EEDF6532CA54C18009AD189 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		5EEDF6552CA553D6009AD189 /* UberLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UberLocation.swift; sourceTree = "<group>"; };
 		5EF445CE2CA5749F00BC4583 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		5EF68A992CC77FC7005F4CED /* PickUpPassengerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickUpPassengerView.swift; sourceTree = "<group>"; };
 		5EFC42F32CB6477C0054A1B9 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		5EFC42F52CB64A6D0054A1B9 /* SavedLocationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedLocationRowView.swift; sourceTree = "<group>"; };
 		5EFC42F72CB64D810054A1B9 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
@@ -266,10 +268,8 @@
 		5E932BF62CA17B8400E2F624 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
-				5E932BF72CA17B9600E2F624 /* RideRequestView.swift */,
-				5EC68E2F2CC38C8600258695 /* AcceptTripView.swift */,
-				5ED581222CC66E5A000F3556 /* TripLoadingView.swift */,
-				5ED581242CC66EB1000F3556 /* TripAcceptedView.swift */,
+				5EF68A982CC77F8D005F4CED /* Passengers */,
+				5EF68A972CC77F87005F4CED /* Drivers */,
 			);
 			path = Trips;
 			sourceTree = "<group>";
@@ -347,6 +347,25 @@
 				5EC45C1C2CB54BEF0018E888 /* SideMenuOptionView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		5EF68A972CC77F87005F4CED /* Drivers */ = {
+			isa = PBXGroup;
+			children = (
+				5EC68E2F2CC38C8600258695 /* AcceptTripView.swift */,
+				5EF68A992CC77FC7005F4CED /* PickUpPassengerView.swift */,
+			);
+			path = Drivers;
+			sourceTree = "<group>";
+		};
+		5EF68A982CC77F8D005F4CED /* Passengers */ = {
+			isa = PBXGroup;
+			children = (
+				5E932BF72CA17B9600E2F624 /* RideRequestView.swift */,
+				5ED581222CC66E5A000F3556 /* TripLoadingView.swift */,
+				5ED581242CC66EB1000F3556 /* TripAcceptedView.swift */,
+			);
+			path = Passengers;
 			sourceTree = "<group>";
 		};
 		5EFC42F02CB647570054A1B9 /* Settings */ = {
@@ -461,6 +480,7 @@
 				5E9AB8262C92712D0094543C /* LocationSearchView.swift in Sources */,
 				5E699FB92C91B9CF003A9F0E /* LocationManager.swift in Sources */,
 				5E9A37BF2CC60D32008D714A /* GeoPoint.swift in Sources */,
+				5EF68A9A2CC77FC7005F4CED /* PickUpPassengerView.swift in Sources */,
 				5E23377E2CC0EBA800FE8E6D /* UserService.swift in Sources */,
 				5EC45C1B2CB54B0A0018E888 /* SideMenuOptionViewModel.swift in Sources */,
 				5EC45C052CB4D2480018E888 /* RegistrationView.swift in Sources */,
