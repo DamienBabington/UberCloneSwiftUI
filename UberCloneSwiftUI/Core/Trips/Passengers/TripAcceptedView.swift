@@ -82,7 +82,7 @@ struct TripAcceptedView: View {
                                 .frame(width: 120, height: 64)
                             
                             HStack {
-                                Text("Merceded S -")
+                                Text("Mercedes S -")
                                     .font(.system(size: 14, weight: .semibold))
                                     .foregroundStyle(.gray)
                                 
@@ -100,7 +100,7 @@ struct TripAcceptedView: View {
             }
             
             Button {
-                print("Cancel Trip")
+                viewModel.cancelTripAsPassenger()
             } label: {
                 Text("CANCEL TRIP")
                     .fontWeight(.bold)

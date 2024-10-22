@@ -103,7 +103,7 @@ extension UberMapViewRepresentable {
         func mapView(_ mapView: MKMapView, viewFor annotation: any MKAnnotation) -> MKAnnotationView? {
             if let annotation = annotation as? DriverAnnotation {
                 let view = MKAnnotationView(annotation: annotation, reuseIdentifier: "driver")
-                view.image = UIImage(named: "chevron-sign-to-right")
+                view.image = UIImage(systemName: "car.circle.fill")
                 return view
             }
             return nil
