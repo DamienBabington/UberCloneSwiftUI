@@ -28,6 +28,9 @@ struct HomeView: View {
                             .offset(x: showSideMenu ? 316 : 0)
                             .shadow(color: showSideMenu ? .black : .clear, radius: 10)
                     }
+                    .onAppear {
+                        showSideMenu = false
+                    }
                 }
                 .navigationViewStyle(.stack)
             }

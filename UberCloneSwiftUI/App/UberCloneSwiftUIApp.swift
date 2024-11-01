@@ -28,6 +28,7 @@ struct UberCloneSwiftUIApp: App {
             HomeView()
                 .environmentObject(authViewModel)
                 .environmentObject(homeViewModel)
+                .navigationViewStyle(.stack)
         }
     }
 }
