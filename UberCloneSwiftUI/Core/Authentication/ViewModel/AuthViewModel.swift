@@ -40,7 +40,7 @@ class AuthViewModel: ObservableObject {
                 fullName: fullName,
                 email: email,
                 coordinates: GeoPoint(latitude: location.latitude, longitude: location.longitude),
-                accountType: .passenger
+                accountType: .driver
             )
             
             self.currentUser = user
@@ -56,7 +56,7 @@ class AuthViewModel: ObservableObject {
                 return
             }
             self.userSession = result?.user
-            self.fetchUser()
+            self.service.fetchUser()
         }
     }
     
@@ -72,6 +72,7 @@ class AuthViewModel: ObservableObject {
     func fetchUser() {
         service.$user
             .sink { user in
+                print("\(#function) shared user updated, User: \(user)")
                 self.currentUser = user
             }
             .store(in: &cancellables)

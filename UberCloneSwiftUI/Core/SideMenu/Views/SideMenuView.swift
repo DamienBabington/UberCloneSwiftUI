@@ -9,9 +9,11 @@ import SwiftUI
 
 struct SideMenuView: View {
     private let user: User
+    @ObservedObject var homeViewModel: HomeViewModel
     
-    init(user: User) {
+    init(user: User, homeViewModel: HomeViewModel) {
         self.user = user
+        self.homeViewModel = homeViewModel
     }
     
     var body: some View {
@@ -79,7 +81,7 @@ struct SideMenuView: View {
                     case .wallet:
                         Text("Wallet")
                     case .settings:
-                        SettingsView(user: user)
+                        SettingsView(user: user, homeViewModel: self.homeViewModel)
                     case .messages:
                         Text("Messages")
                     }
@@ -92,10 +94,10 @@ struct SideMenuView: View {
     }
 }
 
-struct SideMenuView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            SideMenuView(user: dev.mockUser)
-        }
-    }
-}
+//struct SideMenuView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            SideMenuView(user: dev.mockUser)
+//        }
+//    }
+//}

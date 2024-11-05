@@ -20,7 +20,12 @@ struct UberMapViewRepresentable: UIViewRepresentable {
     
     let mapView = MKMapView()
     @Binding var mapState: MapViewState
-    @EnvironmentObject var homeViewModel: HomeViewModel
+    let homeViewModel: HomeViewModel
+    
+    init(homeViewModel: HomeViewModel, mapState: Binding<MapViewState>) {
+        self.homeViewModel = homeViewModel
+        self._mapState = mapState
+    }
     
     func makeUIView(context: Context) -> some UIView {
         mapView.delegate = context.coordinator

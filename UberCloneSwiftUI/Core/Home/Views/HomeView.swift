@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
     @State private var mapState = MapViewState.noInput
     @State private var showSideMenu = false
-    @EnvironmentObject var homeViewModel: HomeViewModel
+    @StateObject var homeViewModel = HomeViewModel()
     @EnvironmentObject var authViewModel: AuthViewModel
     
     var body: some View {
@@ -22,7 +22,7 @@ struct HomeView: View {
                 NavigationStack {
                     ZStack {
                         if showSideMenu {
-                            SideMenuView(user: user)
+                            SideMenuView(user: user, homeViewModel: self.homeViewModel)
                         }
                         mapView
                             .offset(x: showSideMenu ? 316 : 0)
@@ -35,6 +35,11 @@ struct HomeView: View {
                 .navigationViewStyle(.stack)
             }
         }
+        .onAppear {
+            print("\(#function) authVM: \(authViewModel)")
+            print("\(#function) authVM user: \(authViewModel.currentUser)")
+            self.homeViewModel.authViewModel = authViewModel
+        }
     }
 }
 
@@ -43,7 +48,7 @@ extension HomeView {
     var mapView: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                UberMapViewRepresentable(mapState: $mapState)
+                UberMapViewRepresentable(homeViewModel: homeViewModel, mapState: $mapState)
                     .ignoresSafeArea()
                 
                 if mapState == .searchingForLocation {
@@ -67,6 +72,11 @@ extension HomeView {
                 homeViewModel.viewForState(mapState, user: user)
                     .transition(.move(edge: .bottom))
             }
+        }
+        .onAppear {
+            print("\(#function) map view authVM: \(authViewModel)")
+            print("\(#function) map view authVM user: \(authViewModel.currentUser)")
+            self.homeViewModel.authViewModel = authViewModel
         }
         .edgesIgnoringSafeArea(.bottom)
         .onReceive(LocationManager.shared.$userLocation) { location in

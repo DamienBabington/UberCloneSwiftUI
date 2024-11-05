@@ -19,7 +19,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct UberCloneSwiftUIApp: App {
     @StateObject var authViewModel = AuthViewModel()
-    @StateObject var homeViewModel = HomeViewModel()
     
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     
@@ -27,8 +26,6 @@ struct UberCloneSwiftUIApp: App {
         WindowGroup {
             HomeView()
                 .environmentObject(authViewModel)
-                .environmentObject(homeViewModel)
-                .navigationViewStyle(.stack)
         }
     }
 }

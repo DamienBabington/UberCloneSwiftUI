@@ -10,9 +10,11 @@ import SwiftUI
 struct SettingsView: View {
     private let user: User
     @EnvironmentObject var authViewModel: AuthViewModel
+    @ObservedObject var homeViewModel: HomeViewModel
     
-    init(user: User) {
+    init(user: User, homeViewModel: HomeViewModel) {
         self.user = user
+        self.homeViewModel = homeViewModel
     }
     
     var body: some View {
@@ -51,9 +53,9 @@ struct SettingsView: View {
                 Section("Favorites") {
                     ForEach(SavedLocationViewModel.allCases) { viewModel in
                         NavigationLink {
-                            SavedLocationSearchView(locationCategory: viewModel)
+                            SavedLocationSearchView(homeviewModel: self.homeViewModel, locationCategory: viewModel)
                         } label: {
-                            SavedLocationRowView(viewModel: viewModel, user: user)
+                            SavedLocationRowView(viewModel: viewModel, user: authViewModel.currentUser!)
                         }
                     }
                 }
@@ -89,10 +91,10 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            SettingsView(user: dev.mockUser)
-        }
-    }
-}
+//struct SettingsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        NavigationStack {
+//            SettingsView(user: dev.mockUser)
+//        }
+//    }
+//}

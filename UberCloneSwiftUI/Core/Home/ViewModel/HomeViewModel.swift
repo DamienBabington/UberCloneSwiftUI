@@ -21,6 +21,7 @@ class HomeViewModel: NSObject, ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     var currentUser: User?
     var routeToPickupLocation: MKRoute?
+    var authViewModel: AuthViewModel?
     
     // location search properties
     @Published var results = [MKLocalSearchCompletion]()
@@ -40,9 +41,9 @@ class HomeViewModel: NSObject, ObservableObject {
     
     override init() {
         super.init()
-        fetchUser()
         searchCompleter.delegate = self
         searchCompleter.queryFragment = queryFragment
+        self.fetchDrivers()
     }
     
     // MARK: - Helpers
@@ -98,7 +99,7 @@ class HomeViewModel: NSObject, ObservableObject {
     
     // MARK: - User API
     
-    func fetchUser() {
+    func fetchUsers() {
         service.$user
             .sink { user in
                 self.currentUser = user
@@ -278,7 +279,7 @@ extension HomeViewModel {
         }
     }
     
-    func selectLocation(_ localSearch: MKLocalSearchCompletion, config: LocationResultsViewConfig) {
+    func selectLocation(_ localSearch: MKLocalSearchCompletion, config: LocationResultsViewConfig, completion: @escaping () -> ()) {
         locationSearch(forLocalSearchCompletion: localSearch) { response, error in
             if let error {
                 print("location search failed with error: \(error.localizedDescription)")
@@ -301,8 +302,13 @@ extension HomeViewModel {
                 Firestore.firestore().collection("users").document(uid).updateData([
                     viewModel.databaseKey: encodedLocation
                 ])
-                
+                if viewModel.databaseKey == "homeLocation" {
+                    self.authViewModel?.currentUser?.homeLocation = savedLocation
+                } else {
+                    self.authViewModel?.currentUser?.workLocation = savedLocation
+                }
             }
+            completion()
         }
     }
     

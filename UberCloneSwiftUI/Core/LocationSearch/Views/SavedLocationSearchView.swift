@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SavedLocationSearchView: View {
     @State private var text: String = ""
-    @StateObject var homeviewModel = HomeViewModel()
+    @ObservedObject var homeviewModel: HomeViewModel
     let locationCategory: SavedLocationViewModel
     
     var body: some View {
@@ -30,8 +30,8 @@ struct SavedLocationSearchView: View {
     }
 }
 
-#Preview {
-    NavigationStack {
-        SavedLocationSearchView(locationCategory: .home)
-    }
-}
+//#Preview {
+//    NavigationStack {
+//        SavedLocationSearchView(locationCategory: .home)
+//    }
+//}
